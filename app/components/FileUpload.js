@@ -28,22 +28,24 @@ export default function FileUpload({ onUploadComplete }) {
 
   return (
     <div className="mb-8 flex flex-col items-center">
-      <h2 className="text-2xl font-semibold mb-4 text-gray-700">Upload New File</h2>
-      <UploadButton
+    <h2 className="text-2xl font-semibold mb-4 text-gray-700">Upload New File</h2>
+    <UploadButton
         endpoint="imageUploader"
         onClientUploadComplete={handleUpload}
         onUploadError={(error) => {
-          alert(`ERROR! ${error.message}`);
+        alert(`ERROR! ${error.message}`);
         }}
         appearance={{
-          button: "ut-ready:bg-green-500 ut-uploading:cursor-not-allowed rounded-md border-2 border-gray-300 bg-white px-4 py-2 text-gray-700 shadow-sm transition-all hover:bg-gray-50 ut-uploading:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-          allowedContent: "text-sm text-gray-600 mt-2",
-          container: "w-full max-w-md"
+        button: "ut-ready:bg-blue-500 ut-uploading:bg-blue-400 ut-uploaded:bg-green-500 rounded-md border-2 border-gray-300 bg-white px-6 py-3 text-lg font-semibold text-gray-700 shadow-sm transition-all hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ut-uploading:cursor-not-allowed",
+        container: "w-full max-w-md",
+        allowedContent: "text-sm text-gray-600 mt-2",
+        uploadIcon: "w-6 h-6 text-blue-500 mb-2",
         }}
-      />
-      <p className="text-sm text-gray-500 mt-2">
+    />
+    <p className="text-sm text-gray-500 mt-4">
         Max file size: 4MB. Supported formats: JPG, PNG, GIF.
-      </p>
+    </p>
     </div>
+
   );
 }
